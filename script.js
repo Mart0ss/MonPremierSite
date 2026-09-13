@@ -1,30 +1,48 @@
-const bouton = document.getElementById('rageButton');
+const boutonFuyant = document.getElementById('rageButton');
+const vraiBouton = document.getElementById('vraiBouton');
+const titre = document.querySelector('h1');
 
-// L'événement 'mouseover' se déclenche dès que la souris SURVOLE le bouton
-bouton.addEventListener('mouseover', function() {
+// ----- LOGIQUE DU BOUTON FUYANT -----
+boutonFuyant.addEventListener('mouseover', function() {
     
-    // 1. On récupère la taille actuelle de l'écran du navigateur
     const largeurFenetre = window.innerWidth;
     const hauteurFenetre = window.innerHeight;
+    const largeurBouton = boutonFuyant.offsetWidth;
+    const hauteurBouton = boutonFuyant.offsetHeight;
 
-    // 2. On récupère la taille du bouton (pour éviter qu'il sorte de l'écran)
-    const largeurBouton = bouton.offsetWidth;
-    const hauteurBouton = bouton.offsetHeight;
+    // On récupère la position actuelle du bouton avant de le bouger
+    const positionXActuelle = boutonFuyant.offsetLeft;
+    const positionYActuelle = boutonFuyant.offsetTop;
 
-    // 3. On génère des coordonnées aléatoires (Math.random() donne un chiffre entre 0 et 1)
-    const randomX = Math.random() * (largeurFenetre - largeurBouton);
-    const randomY = Math.random() * (hauteurFenetre - hauteurBouton);
+    let randomX, randomY;
+    let distance = 0;
 
-    // 4. On annule la position de départ (le centre en bas)
-    bouton.style.bottom = 'auto';
-    bouton.style.transform = 'none';
+    // LA BOUCLE MAGIQUE : on continue de calculer TANT QUE le saut fait moins de 400 pixels
+    while (distance < 400) {
+        randomX = Math.random() * (largeurFenetre - largeurBouton);
+        randomY = Math.random() * (hauteurFenetre - hauteurBouton);
 
-    // 5. On applique les nouvelles coordonnées !
-    bouton.style.left = randomX + 'px';
-    bouton.style.top = randomY + 'px';
+        // Théorème de Pythagore pour calculer la distance entre l'ancien et le nouveau point
+        let ecartX = randomX - positionXActuelle;
+        let ecartY = randomY - positionYActuelle;
+        distance = Math.sqrt((ecartX * ecartX) + (ecartY * ecartY));
+    }
+
+    boutonFuyant.style.bottom = 'auto';
+    boutonFuyant.style.transform = 'none';
+    
+    // On applique les nouvelles coordonnées (qui sont maintenant garanties d'être loin)
+    boutonFuyant.style.left = randomX + 'px';
+    boutonFuyant.style.top = randomY + 'px';
 });
 
-// (Optionnel) Si jamais quelqu'un arrive à cliquer dessus (sur téléphone par exemple)
-bouton.addEventListener('click', function() {
-    alert("Tricheur ! Tu as utilisé un écran tactile ? 😂");
+// Si quelqu'un arrive quand même à cliquer sur le fuyant (ex: écran tactile)
+boutonFuyant.addEventListener('click', function() {
+    alert("Impossible ! Tu as triché avec un écran tactile ? 😂");
+});
+
+// ----- LOGIQUE DU VRAI BOUTON -----
+vraiBouton.addEventListener('click', function() {
+    titre.innerText = "Victoire ! Tu as trouvé le vrai bouton 🏆";
+    titre.style.color = "#2ecc71";
 });

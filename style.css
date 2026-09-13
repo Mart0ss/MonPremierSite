@@ -2,10 +2,8 @@ body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background-color: #f0f4f8;
     text-align: center;
-    /* On force la page à faire 100% de la hauteur de ton écran */
     height: 100vh; 
     margin: 0;
-    /* On empêche l'apparition de barres de défilement quand le bouton bouge */
     overflow: hidden; 
     position: relative;
 }
@@ -15,23 +13,36 @@ h1 {
     margin-top: 50px;
 }
 
+/* Design commun à tous les boutons de la page */
 button {
-    background-color: #e74c3c;
     color: white;
     border: none;
     padding: 15px 30px;
     font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
-    
-    /* LA MAGIE CSS : Le bouton devient libre de bouger n'importe où */
-    position: absolute;
-    
-    /* Position de départ : en bas au centre */
+    position: absolute; /* Ils flottent librement */
+}
+
+/* Le bouton rage bait (Rouge) */
+#rageButton {
+    background-color: #e74c3c;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
-    
-    /* Petite animation fluide de 0.2 seconde quand il s'échappe */
-    transition: top 0.2s ease, left 0.2s ease; 
+    transition: top 0.15s ease, left 0.15s ease; /* J'ai réduit à 0.15s pour qu'il fuie plus vite ! */
+}
+
+/* Le vrai bouton (Vert) */
+#vraiBouton {
+    background-color: #2ecc71;
+    right: 50px; /* Collé à droite */
+    top: 50%; /* Au centre verticalement */
+    transform: translateY(-50%); /* Ajustement parfait pour le centrage */
+    transition: 0.3s;
+}
+
+#vraiBouton:hover {
+    background-color: #27ae60;
+    transform: translateY(-50%) scale(1.05); /* Petit effet quand on le survole */
 }
