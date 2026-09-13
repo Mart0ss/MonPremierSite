@@ -1,17 +1,30 @@
-// 1. On pointe vers les éléments du HTML qu'on veut manipuler
-const bouton = document.getElementById('monBouton');
-const titre = document.querySelector('h1');
+const bouton = document.getElementById('rageButton');
 
-// 2. On ajoute un "écouteur d'événement" sur le bouton (on écoute le "clic")
+// L'événement 'mouseover' se déclenche dès que la souris SURVOLE le bouton
+bouton.addEventListener('mouseover', function() {
+    
+    // 1. On récupère la taille actuelle de l'écran du navigateur
+    const largeurFenetre = window.innerWidth;
+    const hauteurFenetre = window.innerHeight;
+
+    // 2. On récupère la taille du bouton (pour éviter qu'il sorte de l'écran)
+    const largeurBouton = bouton.offsetWidth;
+    const hauteurBouton = bouton.offsetHeight;
+
+    // 3. On génère des coordonnées aléatoires (Math.random() donne un chiffre entre 0 et 1)
+    const randomX = Math.random() * (largeurFenetre - largeurBouton);
+    const randomY = Math.random() * (hauteurFenetre - hauteurBouton);
+
+    // 4. On annule la position de départ (le centre en bas)
+    bouton.style.bottom = 'auto';
+    bouton.style.transform = 'none';
+
+    // 5. On applique les nouvelles coordonnées !
+    bouton.style.left = randomX + 'px';
+    bouton.style.top = randomY + 'px';
+});
+
+// (Optionnel) Si jamais quelqu'un arrive à cliquer dessus (sur téléphone par exemple)
 bouton.addEventListener('click', function() {
-    
-    // Tout ce qui est ici s'exécute uniquement quand on clique !
-    
-    // On change le texte et la couleur du gros titre
-    titre.innerText = "Bravo ! Le JavaScript fonctionne ! 🚀";
-    titre.style.color = "#e74c3c"; // Devient rouge
-    
-    // On change le texte et la couleur du bouton
-    bouton.innerText = "Mission accomplie";
-    bouton.style.backgroundColor = "#2ecc71"; // Devient vert
+    alert("Tricheur ! Tu as utilisé un écran tactile ? 😂");
 });

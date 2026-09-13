@@ -1,33 +1,37 @@
-/* On change le style global du corps de la page */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8; /* Un gris-bleu très clair */
-    color: #333333; /* Texte gris foncé */
-    text-align: center; /* On centre tout le texte */
-    padding-top: 100px; /* On décale un peu vers le bas */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f0f4f8;
+    text-align: center;
+    /* On force la page à faire 100% de la hauteur de ton écran */
+    height: 100vh; 
+    margin: 0;
+    /* On empêche l'apparition de barres de défilement quand le bouton bouge */
+    overflow: hidden; 
+    position: relative;
 }
 
-/* On stylise le gros titre h1 */
 h1 {
-    color: #2c3e50; /* Bleu marine */
-    font-size: 40px;
+    color: #2c3e50;
+    margin-top: 50px;
 }
 
-/* On rend le bouton beaucoup plus cliquable */
 button {
-    background-color: #3498db; /* Bleu clair */
-    color: white; /* Texte en blanc */
-    border: none; /* On enlève la bordure moche par défaut */
-    padding: 15px 30px; /* Espace à l'intérieur du bouton */
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
     font-size: 18px;
-    border-radius: 8px; /* Bords arrondis */
-    cursor: pointer; /* La souris devient une petite main au survol */
-    transition: 0.3s; /* Petite animation douce pour le hover */
-    margin-top: 20px;
-}
-
-/* Ce qu'il se passe quand on passe la souris SUR le bouton */
-button:hover {
-    background-color: #2980b9; /* Devient bleu foncé au survol */
-    transform: scale(1.05); /* Grossit très légèrement */
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* LA MAGIE CSS : Le bouton devient libre de bouger n'importe où */
+    position: absolute;
+    
+    /* Position de départ : en bas au centre */
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Petite animation fluide de 0.2 seconde quand il s'échappe */
+    transition: top 0.2s ease, left 0.2s ease; 
 }
