@@ -43,6 +43,6 @@ boutonFuyant.addEventListener('click', function() {
 
 // ----- LOGIQUE DU VRAI BOUTON -----
 vraiBouton.addEventListener('click', function() {
-    titre.innerText = "T'es trop méchante !!!";
+    titre.innerText = "J'le savait !!!";
     titre.style.color = "#2ecc71";
 });
