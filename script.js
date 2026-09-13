@@ -38,11 +38,11 @@ boutonFuyant.addEventListener('mouseover', function() {
 
 // Si quelqu'un arrive quand même à cliquer sur le fuyant (ex: écran tactile)
 boutonFuyant.addEventListener('click', function() {
-    alert("Impossible ! Tu as triché avec un écran tactile ? 😂");
+    alert("Impossible ! Tu as triché !");
 });
 
 // ----- LOGIQUE DU VRAI BOUTON -----
 vraiBouton.addEventListener('click', function() {
-    titre.innerText = "Victoire ! Tu as trouvé le vrai bouton 🏆";
+    titre.innerText = "T'es trop méchante !!!";
     titre.style.color = "#2ecc71";
 });

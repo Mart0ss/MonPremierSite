@@ -36,7 +36,7 @@ button {
 /* Le vrai bouton (Vert) */
 #vraiBouton {
     background-color: #2ecc71;
-    right: 50px; /* Collé à droite */
+    right: 40px; /* Collé à droite */
     top: 50%; /* Au centre verticalement */
     transform: translateY(-50%); /* Ajustement parfait pour le centrage */
     transition: 0.3s;
