@@ -43,6 +43,6 @@ boutonFuyant.addEventListener('click', function() {
 
 // ----- LOGIQUE DU VRAI BOUTON -----
 vraiBouton.addEventListener('click', function() {
-    titre.innerText = "J'le savait !!!";
+    titre.innerText = "Antoine a toujours raison";
     titre.style.color = "#2ecc71";
 });
