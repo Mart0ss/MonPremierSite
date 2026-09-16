@@ -1,48 +1,112 @@
+/* --- BASE DU SITE --- */
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #f0f4f8;
+    background-color: #f8f9fa;
+    color: #333333;
+    margin: 0; /* Très important pour que le menu touche les bords de l'écran */
     text-align: center;
-    height: 100vh; 
-    margin: 0;
-    overflow: hidden; 
-    position: relative;
 }
 
 h1 {
-    color: #2c3e50;
     margin-top: 50px;
+    color: #2c3e50;
 }
 
-/* Design commun à tous les boutons de la page */
-button {
+/* --- BARRE DE NAVIGATION --- */
+nav {
+    background-color: #2c3e50; /* Couleur de fond (Bleu marine) */
+    padding: 15px 0; /* Un peu d'espace en haut et en bas */
+}
+
+/* La liste à l'intérieur du menu */
+nav ul {
+    list-style-type: none; /* Enlève les puces (points) */
+    margin: 0;
+    padding: 0;
+    display: flex; /* La magie CSS : aligne les éléments à l'horizontale */
+    justify-content: center; /* Centre le menu */
+    gap: 40px; /* Met un écart de 40px entre chaque lien */
+}
+
+/* Les liens du menu */
+nav a {
     color: white;
-    border: none;
-    padding: 15px 30px;
+    text-decoration: none; /* Enlève le soulignement des liens */
     font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    position: absolute; /* Ils flottent librement */
-}
-
-/* Le bouton rage bait (Rouge) */
-#rageButton {
-    background-color: #e74c3c;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: top 0.15s ease, left 0.15s ease; /* J'ai réduit à 0.15s pour qu'il fuie plus vite ! */
-}
-
-/* Le vrai bouton (Vert) */
-#vraiBouton {
-    background-color: #2ecc71;
-    right: 40px; /* Collé à droite */
-    top: 50%; /* Au centre verticalement */
-    transform: translateY(-50%); /* Ajustement parfait pour le centrage */
+    font-weight: bold;
     transition: 0.3s;
 }
 
-#vraiBouton:hover {
-    background-color: #27ae60;
-    transform: translateY(-50%) scale(1.05); /* Petit effet quand on le survole */
+/* Quand la souris survole un lien */
+nav a:hover {
+    color: #3498db; /* Devient bleu clair */
+}
+
+/* Le design du lien de la page où l'on se trouve actuellement */
+nav a.active {
+    color: #3498db;
+    border-bottom: 2px solid #3498db; /* Ajoute un petit trait en dessous */
+    padding-bottom: 5px;
+}
+
+/* --- FORMULAIRE DE CONTACT --- */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Petite ombre professionnelle */
+    text-align: left;
+}
+
+.champ {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    box-sizing: border-box; /* Évite que le champ déborde */
+    font-family: inherit;
+}
+
+/* On force le bouton du formulaire à rester sagement à sa place (contrairement au bouton fuyant !) */
+form button {
+    position: static;
+    width: 100%;
+    background-color: #3498db;
+    transform: none;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+
+/* --- RESPONSIVE DESIGN (Pour les écrans de moins de 768 pixels de large) --- */
+@media (max-width: 768px) {
+    
+    /* On modifie le comportement du menu */
+    nav ul {
+        flex-direction: column; /* Au lieu d'être alignés de gauche à droite, on empile les liens de haut en bas */
+        gap: 15px; /* On réduit l'espace entre les liens */
+        padding: 10px 0;
+    }
+
+    /* On réduit un peu la taille des gros titres pour ne pas déborder de l'écran */
+    h1 {
+        font-size: 24px;
+        margin-top: 25px;
+    }
 }

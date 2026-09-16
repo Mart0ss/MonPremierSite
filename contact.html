@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mon Site Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>Contactez-nous</h1>
+    <p>Demandez votre devis gratuit ci-dessous :</p>
+
+    <!-- LE FORMULAIRE MAGIQUE NETLIFY -->
+    <form name="contact" method="POST" data-netlify="true">
+        
+        <div class="champ">
+            <label for="nom">Votre Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+
+        <div class="champ">
+            <label for="email">Votre Email :</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="champ">
+            <label for="message">Votre Message :</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Envoyer le message</button>
+    </form>
+
+</body>
+</html>
